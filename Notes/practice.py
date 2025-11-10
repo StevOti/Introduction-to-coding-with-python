@@ -209,5 +209,36 @@ if __name__ == "__main__":
     main()
 
 
+# The program asks the user to enter a number 
+# between 1 and 10. If the number is not in this 
+# range, keep printing a warning message and 
+# asking the user to re-enter the number. Then 
+# keep doubling this number until the result is 
+# 100,000 or more. Print the final result and the 
+# number of times the number was doubled.
+
+
+# Ask the user to enter a number between 1 and 10
+while True:
+    try:
+        number = int(input("Enter a number between 1 and 10: "))
+        if 1 <= number <= 10:
+            break  # valid input
+        else:
+            print("⚠️ Number out of range! Please enter a number between 1 and 10.")
+    except ValueError:
+        print("⚠️ Invalid input! Please enter a valid integer.")
+
+# Keep doubling the number until it reaches or exceeds 100,000
+count = 0
+while number < 100000:
+    number *= 2
+    count += 1
+
+
+# Print the final result
+print(f"\nFinal result: {number}")
+print(f"Number of times doubled: {count}")
+
 
 
