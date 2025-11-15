@@ -217,28 +217,156 @@ if __name__ == "__main__":
 # 100,000 or more. Print the final result and the 
 # number of times the number was doubled.
 
+def double_number():
+    # Ask the user to enter a number between 1 and 10
+    while True:
+        try:
+            number = int(input("Enter a number between 1 and 10: "))
+            if 1 <= number <= 10:
+                break  # valid input
+            else:
+                print("Number out of range! Please enter a number between 1 and 10.")
+        except ValueError:
+            print("Invalid input! Please enter a number between 1 and 10.")
 
-# Ask the user to enter a number between 1 and 10
-while True:
-    try:
-        number = int(input("Enter a number between 1 and 10: "))
-        if 1 <= number <= 10:
-            break  # valid input
+    # Keep doubling the number until it reaches or exceeds 100,000
+    count = 0
+    while number < 100000:
+        number *= 2
+        count += 1
+
+
+    # Print the final result
+    print(f"\nFinal result: {number}")
+    print(f"Number of times doubled: {count}")
+
+double_number()
+
+# Amend the program Challenge 68 
+# Double a number repeatedly completed
+# so that the user can enter the final 
+# target. Include validation to ensure 
+# the target entered by the user is 
+# between 20 and 100,000. Also 
+# include a print statement so that 
+# the number, and number of times 
+# doubled, is printed each time it 
+# is doubled.
+
+def double_number():
+    # Ask the user to enter a number between 1 and 10
+    while True:
+        try:
+            number = int(input("Enter a number between 1 and 10: "))
+            if 1 <= number <= 10:
+                break  # valid input
+            else:
+                print("Number out of range! Please enter a number between 1 and 10.")
+        except ValueError:
+            print("Invalid input! Please enter a number between 1 and 10.")
+
+    # Keep doubling the number until it reaches or exceeds 100,000
+    
+    while True:
+        target = int(input("Enter a number between 20 and 100000: "))
+        if target > 20 and  target < 100000:
+            break
         else:
-            print("⚠️ Number out of range! Please enter a number between 1 and 10.")
-    except ValueError:
-        print("⚠️ Invalid input! Please enter a valid integer.")
-
-# Keep doubling the number until it reaches or exceeds 100,000
-count = 0
-while number < 100000:
-    number *= 2
-    count += 1
+            int(input("Enter a number between 20 and 100000: "))
 
 
-# Print the final result
-print(f"\nFinal result: {number}")
-print(f"Number of times doubled: {count}")
+    count = 0
+    while number < target:
+        number *= 2
+        count += 1
+        print(f"The number: {number} and the number of times doubled: {count}")
+    
+    
+double_number()
+
+# Write a program to initialise the list of planets: 
+# planet = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn"]
+# Use the list.append() method to append Uranus and Neptune to the end of list.
+# Print the list in the format:
+# ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+
+planet = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn"]
+
+planet.append("Uranus")
+planet.append("Neptune")
+print(planet)
 
 
 
+# Write a program to initialise the list:
+# ["Mercury", "Venus", "Mars", "Jupiter", "Saturn"]
+# Use a list method to insert "Earth" between "Venus" and "Mars".
+# Print the amended list.
+
+planets = ["Mercury", "Venus", "Mars", "Jupiter", "Saturn"]
+
+planets.insert(2, "Earth")
+print(planets)
+
+# Write a program to initialise and print the list of planets: 
+# planet = ["Mercury", "Venus", "Earth", "Mars", 
+# "Jupiter", "Saturn"]
+# Then print the list with each planet on a separate line starting 
+# with Saturn, and ending with Mercury
+
+planet = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn"]
+
+n = len(planet)
+
+for i in range(n):
+    print(planet[i])
+
+
+# The program below generates 20 random floating point numbers between 0 and 1. Using these 
+# numbers, random numbers between 0 and 200, and between 50 and 250 are generated. The three 
+# sets of numbers are printed in neat columns.
+#Program name: Level 6 Example 7 Formatting printed columns
+import random
+
+for index in range (20):
+    num1 = random.random() #returns a random number between 0 and 1
+    num2 = num1 * 200		#returns a random number between 0 and 200
+    num3 = num1 * 200 + 50 #returns a random number between 50 and 250
+#print num1 to 4 decimal places,
+#num2 to 2 decimal places, num3 to 1 decimal place
+#each number occupies 20 spaces and is right aligned
+print("{:>20.4f}{:>20.2f}{:>20.1f}".format(num1,num2,num3))
+
+# Write a program that allows a user to enter two numbers area1 and area2, e.g. 2.347 and 1, 
+# representing average daily rainfall in two different areas. Print a heading, and print the numbers with 
+# two decimal places on one line, each in a 10-character space. 
+# Enter average daily rainfall for area 1: 2.347
+# c: 1
+#  Area1 Area2
+#  2.35 1.00
+
+region1 = "Area1"
+region2 = "Area2"
+area1 = float(input("Enter average daily rainfall for area 1: "))
+area2 = float(input("Enter average daily rainfall for area 2: "))
+
+print(f"{region1:>10}{region2:>10}")
+print(f"{area1:>10.2f}{area2:>10.2f}")
+
+
+#Program name: Level 9 Example 2 Bubble sort (fish)
+fish = ["parrotfish", "grouper", "boxfish", "damselfish", "snapper", "ray"]
+#get number of items in the list
+numItems = len(fish)
+passNumber = numItems - 1
+swapMade = True
+while passNumber > 0 and swapMade:
+    swapMade = False
+    for j in range(passNumber):
+        if fish[j] > fish[j + 1]:
+            temp = fish[j]
+            fish[j] = fish[j + 1]
+            fish[j + 1] = temp
+            swapMade = True
+    passNumber = passNumber - 1
+print("\nSorted list:\n",fish)
