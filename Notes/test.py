@@ -1,12 +1,5 @@
-numbers = []
+list = [[2,3,4], [5, 6, 7], [8, 9, 11]]
 
-for i in range(0, 3):
-    num = int(input("Enter a number: "))
-    numbers.append(num)
-    print(numbers)
-
-last_num = input("Do you still want the last number in the list?(y/n) ")
-
-if last_num == "n":
-    numbers.remove(2)
-    print(numbers)
+row = int(input("Enter a row: "))
+col = int(input("Enter a column: "))
+print(list[row][col])
